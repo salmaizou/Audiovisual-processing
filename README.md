@@ -38,4 +38,4 @@ Les images PNG sont enregistrées dans `results/edges/`, avec fond blanc et cont
 
 ## Partie 2 - Reconnaissance de séquence vidéo
 
-La partie reconnaissance par marqueurs ORB est indépendante de la segmentation. Les commandes et l'analyse sont dans [sequence_video_report.md](sequence_video_report.md).
+La partie reconnaissance par marqueurs ORB est indépendante de la segmentation.
