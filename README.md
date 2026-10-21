@@ -59,16 +59,13 @@ Avantage : cette mesure tient compte de la structure et des contours, même lors
 
 Inconvénient : elle peut être sensible au bruit, aux mouvements d’objets, aux changements d’éclairage et aux paramètres de détection des contours. Ces variations peuvent provoquer des alertes sans véritable changement de plan.
 
-Combinaison des mesures et détection
+Combinaison des mesures et détection //
 Les deux mesures sont normalisées entre 0 et 1, puis combinées avec un poids identique :
-Combinaison des mesures
-\[
-\boxed{
-D_{\text{combinée}}
-= 0{,}5\,D_{\text{couleur normalisée}}
-+ 0{,}5\,D_{\text{géométrie normalisée}}
-}
-\]
+
+D combinée = 0,5 × D couleur normalisée + 0,5 × D géométrie normalisée
+
+Le programme considère qu’un changement potentiel a lieu lorsque la mesure combinée dépasse 0,35. Un écart minimal de 5 frames entre deux détections est également imposé afin de limiter les alertes répétées autour d’une même transition.
+
 Le programme considère qu’un changement potentiel a lieu lorsque cette mesure combinée dépasse 0,35. Un écart minimal de 5 frames entre deux détections est également imposé afin de limiter les alertes répétées autour d’une même transition.
 
 Ces valeurs sont des paramètres de l’expérience : elles peuvent être ajustées et comparées pour observer leur effet sur les résultats.
@@ -82,22 +79,16 @@ Faux positifs (FP) : changements détectés sans changement de référence corre
 Faux négatifs (FN) : changements de référence non détectés.
 La précision indique la proportion de détections qui sont correctes :
 
-[
-\text{Précision} = \frac{VP}{VP + FP}
-]
+Précision = VP / (VP + FP)
 
 Le rappel indique la proportion des changements de référence retrouvés :
 
-[
-\text{Rappel} = \frac{VP}{VP + FN}
-]
+Rappel = VP / (VP + FN)
 
 Le F1-score résume la précision et le rappel par leur moyenne harmonique :
 
-[
-F1 = 2 \times \frac{\text{Précision} \times \text{Rappel}}
-{\text{Précision} + \text{Rappel}}
-]
+F1-score = 2 × (Précision × Rappel) / (Précision + Rappel)
+
 La précision est utile lorsque l’on souhaite limiter les fausses détections. Le rappel est important lorsque l’on veut retrouver le plus grand nombre possible de changements réels. Le F1-score permet d’avoir une mesure synthétique tenant compte des deux.
 
 Avantages et limites de l’approche
